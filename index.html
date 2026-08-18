@@ -129,16 +129,17 @@ section{padding:64px 22px}
   min-height:100svh;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   position:relative;overflow:hidden;padding:48px 28px 88px;
+  justify-content:flex-start;
 }
 
 /* Background photo */
 .h-bg{
-  position:absolute;top:-20%;left:0;right:0;bottom:-20%;
+  position:absolute;top:-6%;left:0;right:0;bottom:-6%;
   z-index:0;will-change:transform;
 }
 .h-bg img{
-  width:100%;height:100%;object-fit:cover;object-position:center 40%;
-  filter:brightness(1.18) saturate(.75) contrast(.88);
+  width:100%;height:100%;object-fit:cover;object-position:center bottom;
+  filter:brightness(1.02) saturate(1) contrast(1);
   display:block;
 }
 
@@ -147,10 +148,10 @@ section{padding:64px 22px}
   position:absolute;inset:0;z-index:1;
   background:
     linear-gradient(to bottom,
-      rgba(255,248,232,.30) 0%,
-      rgba(255,248,232,.15) 32%,
-      rgba(255,248,232,.55) 62%,
-      rgba(255,248,232,.97) 100%);
+      rgba(255,248,232,.55) 0%,
+      rgba(255,248,232,.20) 42%,
+      rgba(255,248,232,.10) 66%,
+      rgba(255,248,232,.92) 100%);
 }
 /* Halo radial detrás del nombre para mayor visibilidad */
 .h-ov::after{
@@ -526,6 +527,17 @@ section{padding:64px 22px}
   box-shadow:0 6px 24px rgba(51,61,40,.1);
 }
 .loc-map-wrap iframe{display:block;width:100%;height:210px;border:0}
+.loc-photo-wrap{
+  width:calc(100% - 44px);margin:0 auto 16px;border-radius:12px;
+  overflow:hidden;border:1px solid rgba(97,55,0,.2);
+  box-shadow:0 6px 24px rgba(51,61,40,.1);
+  background:var(--ink2);
+}
+.loc-photo-wrap img{display:block;width:100%;height:auto}
+.loc-photo-cap{
+  text-align:center;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;
+  color:var(--peach);opacity:.9;margin:-6px 0 16px;
+}
 
 /* ── Doble evento en un solo card ─────────────────────── */
 .loc-dual{
@@ -1568,8 +1580,8 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 /* ── LEGIBILIDAD (invitados mayores) ─────────────────── */
 .h-we{font-size:13px;letter-spacing:5px}
 .h-city{font-size:15px;letter-spacing:2px}
-.h-scroll span{font-size:13px;text-shadow:0 1px 6px rgba(0,0,0,.55)}
-.h-scroll-line{box-shadow:0 0 6px rgba(0,0,0,.4)}
+.h-scroll span{font-size:13px;color:var(--peach);opacity:1}
+.h-scroll-line{box-shadow:0 0 8px rgba(255,248,232,.9)}
 .cd-ring-lbl{font-size:13px;letter-spacing:1.6px}
 .loc-dual-type{font-size:15px;letter-spacing:2px}
 .loc-dual-time em{font-size:15px}
@@ -1596,6 +1608,31 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 .lbl{font-size:13px}
 .drop-photo-label{font-size:13px}
 .el-credit span{font-size:14px}
+
+/* ── NUBE DE LEGIBILIDAD EN EL HERO ──────────────────── */
+.h-we,.h-city,.h-date,.h-div-dot,.h-scroll span{
+  text-shadow:0 0 4px #FFF8E8,0 0 4px #FFF8E8,0 0 9px #FFF8E8,0 0 9px #FFF8E8,0 0 16px #FFF8E8,0 0 16px #FFF8E8,0 0 26px #FFF8E8,0 0 38px #FFF8E8,0 0 52px rgba(255,248,232,.95) !important;
+}
+.h-name,.h-amp{
+  text-shadow:0 0 4px #FFF8E8,0 0 4px #FFF8E8,0 0 9px #FFF8E8,0 0 9px #FFF8E8,0 0 16px #FFF8E8,0 0 16px #FFF8E8,0 0 26px #FFF8E8,0 0 38px #FFF8E8,0 0 52px rgba(255,248,232,.95),0 0 70px rgba(255,248,232,.9) !important;
+}
+.h-cnt::before{
+  content:'';position:absolute;left:50%;top:50%;
+  width:112%;max-width:430px;height:104%;transform:translate(-50%,-50%);
+  background:radial-gradient(ellipse at center,
+    rgba(255,248,232,.62) 0%,
+    rgba(255,248,232,.34) 46%,
+    rgba(255,248,232,0) 76%);
+  z-index:-1;pointer-events:none;
+  filter:blur(10px);
+}
+.h-cnt{position:relative;z-index:2}
+.h-scroll::before{
+  content:'';position:absolute;left:50%;top:50%;
+  width:170px;height:150px;transform:translate(-50%,-50%);
+  background:radial-gradient(ellipse at center,rgba(255,248,232,.8) 0%,rgba(255,248,232,0) 72%);
+  z-index:-1;pointer-events:none;
+}
   </style>
 </head>
 <body>
@@ -1783,6 +1820,10 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
       </div>
     </div>
 
+    <div class="loc-photo-wrap">
+      <img src="venue-iglesia.jpg" alt="Parroquia de San Francisco de Asís" loading="lazy" width="900">
+    </div>
+    <p class="loc-photo-cap">La iglesia</p>
     <p class="loc-addr">5 de Febrero Mz 011, Centro<br>51200 Valle de Bravo, Estado de México</p>
     <div class="loc-map-wrap">
       <iframe src="https://maps.google.com/maps?q=Parroquia%20de%20San%20Francisco%20de%20As%C3%ADs%20Valle%20de%20Bravo&output=embed&hl=es&z=16" loading="lazy" allowfullscreen title="Mapa Parroquia de San Francisco de Asís"></iframe>
@@ -1818,6 +1859,10 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
       </div>
     </div>
 
+    <div class="loc-photo-wrap">
+      <img src="venue-jardin.jpg" alt="Jardín El Tlapeue" loading="lazy" width="900">
+    </div>
+    <p class="loc-photo-cap">El jardín</p>
     <p class="loc-addr">Calle Flor, Ave de Paraíso s/n<br>51200 Santa María Pipioltepec, Estado de México</p>
     <div class="loc-map-wrap">
       <iframe src="https://maps.google.com/maps?q=Jard%C3%ADn%20El%20Tlapeue%20Santa%20Mar%C3%ADa%20Pipioltepec&output=embed&hl=es&z=16" loading="lazy" allowfullscreen title="Mapa Jardín El Tlapeue"></iframe>
@@ -2198,7 +2243,7 @@ function heroAnim() {
 
   // Hero parallax
   gsap.to('#heroBg', {
-    yPercent: 22, ease: 'none',
+    yPercent: 7, ease: 'none',
     scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
   });
 }
