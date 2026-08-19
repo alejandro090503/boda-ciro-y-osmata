@@ -1767,7 +1767,9 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 /* ── GALERÍA · RUEDA 3D ──────────────────────────────── */
 #gallery{overflow:visible}
 .wheel-scene{position:relative;width:100%;height:470px;margin:36px auto 0;perspective:1300px;transform-style:preserve-3d;overflow:visible}
-.wheel-ring{position:absolute;width:100%;height:100%;transform-style:preserve-3d;cursor:grab}
+.wheel-ring{position:absolute;width:100%;height:100%;transform-style:preserve-3d;cursor:grab;touch-action:pan-y}
+.wheel-scene{touch-action:pan-y}
+body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
 .wheel-ring.dragging{cursor:grabbing}
 .wheel-card{
   position:absolute;width:192px;height:270px;left:50%;top:50%;
@@ -1858,6 +1860,16 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 <body>
 
 <!-- LOADER -->
+<!-- Música ambiental -->
+<audio id="bgMusic" src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/audio/boda-ciro-y-osmata/cancion.mp3" loop preload="none"></audio>
+
+<!-- Botón flotante de música · disco de vinilo -->
+<button id="musicBtn" class="music-btn" aria-label="Música de fondo">
+  <span class="vinyl" aria-hidden="true">
+    <span class="vinyl-label"><span class="vinyl-hole"></span></span>
+  </span>
+</button>
+
 <!-- ═══════════════ SOBRE DE APERTURA ═══════════════ -->
 <div id="envelope-screen">
   <img id="envImage" src="sobre.jpg" alt="Sobre de invitación de Ciro y Osmara">
@@ -2486,6 +2498,10 @@ function initEnvelope(){
     if (tapped) return; tapped = true;
     e.preventDefault();
     if (typeof window._startMusic === 'function') window._startMusic();
+    else {                                   /* red de seguridad */
+      const a = document.getElementById('bgMusic');
+      if (a) { a.volume = .32; a.play().catch(()=>{}); }
+    }
     gsap.to(tap, {opacity:0, duration:.3});
     function crossfade(){
       gsap.to(img,   {opacity:0, duration:.45, ease:'power2.inOut'});
@@ -3158,9 +3174,26 @@ function initWheel(){
   ring.addEventListener('mousedown',function(e){e.preventDefault();down(e.clientX);});
   window.addEventListener('mousemove',function(e){move(e.clientX);});
   window.addEventListener('mouseup',up);
-  ring.addEventListener('touchstart',function(e){down(e.touches[0].clientX);},{passive:true});
-  ring.addEventListener('touchmove',function(e){move(e.touches[0].clientX);},{passive:true});
-  ring.addEventListener('touchend',up);
+  var startY=0, axis=null;
+  ring.addEventListener('touchstart',function(e){
+    startY=e.touches[0].clientY; axis=null;
+    down(e.touches[0].clientX);
+  },{passive:true});
+  /* passive:false para poder cancelar el scroll lateral de la página:
+     si el gesto es claramente horizontal lo consume la rueda */
+  ring.addEventListener('touchmove',function(e){
+    if(!isDrag) return;
+    var t=e.touches[0];
+    if(axis===null){
+      var dx=Math.abs(t.clientX-startX), dy=Math.abs(t.clientY-startY);
+      if(dx<6 && dy<6) return;
+      axis = dx > dy ? 'x' : 'y';
+      if(axis==='y'){ up(); return; }   /* gesto vertical → deja pasar el scroll */
+    }
+    if(axis==='x'){ e.preventDefault(); move(t.clientX); }
+  },{passive:false});
+  ring.addEventListener('touchend',function(){axis=null;up();});
+  ring.addEventListener('touchcancel',function(){axis=null;up();});
   (function spin(){ if(auto&&!isDrag){rot+=0.12;setRot();} requestAnimationFrame(spin); })();
 }
 
@@ -3393,13 +3426,32 @@ function toast(msg) {
   function startMusic(){
     if(playing) return;
     audio.volume = 0.32;
+    /* preload="none": forzamos la carga dentro del gesto del usuario */
+    if(audio.readyState === 0){ try{ audio.load(); }catch(e){} }
     seekStart();
-    audio.play().then(function(){
-      playing = true;
-      btn.classList.add('on');
-      seekStart();
-    }).catch(function(){});
+    const pr = audio.play();
+    if(pr && pr.then){
+      pr.then(function(){
+        playing = true;
+        btn.classList.add('on');
+        seekStart();
+      }).catch(function(){
+        /* algunos navegadores rechazan el play mientras el audio aún no tiene
+           datos; reintentamos en cuanto pueda reproducirse y, si aun así falla,
+           al primer toque que dé el invitado dentro de la invitación */
+        audio.addEventListener('canplay', function(){
+          audio.play().then(function(){
+            playing = true; btn.classList.add('on'); seekStart();
+          }).catch(function(){});
+        }, {once:true});
+        document.addEventListener('click',      retry, {once:true});
+        document.addEventListener('touchstart', retry, {once:true});
+      });
+    } else {
+      playing = true; btn.classList.add('on');
+    }
   }
+  function retry(){ playing = false; startMusic(); }
 
   window._startMusic = startMusic;
   document.addEventListener('scroll', startMusic, {once:true});
@@ -3412,16 +3464,6 @@ function toast(msg) {
 })();
 
 </script>
-
-<!-- Música ambiental -->
-<audio id="bgMusic" src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/audio/boda-ciro-y-osmata/cancion.mp3" loop preload="none"></audio>
-
-<!-- Botón flotante de música · disco de vinilo -->
-<button id="musicBtn" class="music-btn" aria-label="Música de fondo">
-  <span class="vinyl" aria-hidden="true">
-    <span class="vinyl-label"><span class="vinyl-hole"></span></span>
-  </span>
-</button>
 
 </body>
 </html>
