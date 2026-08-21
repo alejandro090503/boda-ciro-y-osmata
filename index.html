@@ -13,7 +13,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Lato:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Pinyon+Script&family=Lato:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
 /* ── TOKENS ───────────────────────────────────────────── */
 :root {
@@ -276,10 +276,10 @@ body.env-locked{overflow:hidden;height:100vh}
   white-space:nowrap;
 }
 
-.h-amp-clip{overflow:hidden;line-height:1;margin:6px 0 8px}
+.h-amp-clip{overflow:hidden;line-height:1.5;padding:2px 0 10px;margin:2px 0 4px}
 .h-amp{
   font-family:'Great Vibes',cursive;
-  font-size:62px;
+  font-size:62px;line-height:1.5;
   color:var(--peach);
   display:block;
   text-shadow:
@@ -1371,8 +1371,8 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 /* ── RESPIRACIÓN EN LBL ───────────────────────────────── */
 .lbl{animation:lblBreathe 7s ease-in-out infinite}
 @keyframes lblBreathe{
-  0%,100%{letter-spacing:5px}
-  50%{letter-spacing:5.7px}
+  0%,100%{opacity:.82}
+  50%{opacity:1}
 }
 
 /* ── GLOW FOOTER NAMES ────────────────────────────────── */
@@ -1855,6 +1855,141 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
 }
 @keyframes qrGlow{0%,100%{opacity:.32;transform:translate(-50%,-50%) scale(.9)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}}
 @media(prefers-reduced-motion:reduce){.alb-qr-wrap::before{animation:none;opacity:.65}}
+
+/* ── TÍTULOS EN SCRIPT ───────────────────────────────── */
+.ttl{font-family:'Pinyon Script',cursive;font-weight:400;font-size:38px;line-height:1.35;letter-spacing:.5px}
+.ttl-script{font-family:'Pinyon Script',cursive;color:var(--peach)}
+.h-we{
+  font-family:'Pinyon Script',cursive;font-weight:400;
+  font-size:30px!important;letter-spacing:1.5px!important;text-transform:none!important;
+  line-height:1.5;
+}
+.env-title,.rsvp-title{font-family:'Pinyon Script',cursive;font-style:normal;font-weight:400}
+.env-title{font-size:30px}
+.rsvp-title{font-size:34px;line-height:1.4}
+.rsvp-title em{font-family:'Pinyon Script',cursive;font-style:normal}
+
+/* ── NUESTRA HISTORIA ────────────────────────────────── */
+#story{background:var(--ink2);padding-top:56px;padding-bottom:56px}
+.story-card{
+  max-width:360px;margin:0 auto;text-align:center;
+  padding:34px 22px 30px;position:relative;
+  border:1px solid rgba(97,55,0,.22);border-radius:18px;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 10px 30px rgba(51,61,40,.07);
+}
+.story-orn{display:block;font-size:20px;color:var(--peach);opacity:.7;margin-bottom:16px;line-height:1}
+.story-txt{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:18px;font-weight:500;line-height:1.85;
+  color:var(--cream);
+}
+.story-txt-end{font-style:normal;font-size:17px;color:var(--peach);font-weight:600}
+
+/* ── CALENDARIO ──────────────────────────────────────── */
+.cal-img-wrap{
+  width:min(300px,84%);margin:24px auto 26px;
+  border-radius:14px;overflow:hidden;
+  border:1px solid rgba(97,55,0,.22);
+  box-shadow:0 10px 30px rgba(51,61,40,.14);
+  background:var(--ink2);
+}
+.cal-img-wrap img{display:block;width:100%;height:auto}
+
+/* ── MESA DE REGALOS · separador interno ─────────────── */
+.env-div{display:block;color:var(--peach);opacity:.6;font-size:13px;margin:2px 0}
+.env-desc strong{color:var(--peach);font-weight:600;font-style:normal}
+
+/* ── TONOS A EVITAR POR GÉNERO ───────────────────────── */
+.dc-avoid-who{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:15px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--peach);text-align:center;margin:6px 0 14px;
+}
+.dc-avoid-sep{
+  height:1px;margin:22px auto 20px;max-width:220px;
+  background:linear-gradient(to right,transparent,rgba(97,55,0,.35),transparent);
+}
+.dc-avoid-wrap .dc-avoid-msg{margin-top:4px}
+
+/* ── AVISO ESPECIAL · NO NIÑOS ───────────────────────── */
+.rsvp-notice{
+  max-width:360px;margin:30px auto 0;padding:30px 22px 26px;
+  text-align:center;border-radius:18px;
+  border:1px solid rgba(97,55,0,.22);
+  background:linear-gradient(160deg,rgba(255,248,232,.95),rgba(255,255,255,.6));
+  box-shadow:0 10px 30px rgba(51,61,40,.07);
+}
+.rsvp-notice-lbl{
+  display:block;font-size:13px;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--peach);font-weight:600;margin-bottom:10px;
+}
+.rsvp-notice-ttl{
+  font-family:'Cormorant Garamond',serif;font-weight:500;
+  font-size:32px;color:var(--cream);line-height:1.2;margin-bottom:16px;
+}
+.rsvp-notice-script{font-family:'Pinyon Script',cursive;color:var(--peach);font-size:40px}
+.rsvp-notice-msg{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+  font-size:16px;line-height:1.8;color:var(--cream);opacity:.95;
+}
+
+/* ── RSVP · sí / no ──────────────────────────────────── */
+.rsvp-toggle{display:flex;gap:10px;margin:0 auto 18px}
+.rsvp-toggle-btn{
+  flex:1;padding:15px 8px;border-radius:10px;cursor:pointer;
+  border:1.5px solid rgba(97,55,0,.28);background:rgba(255,255,255,.65);
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;
+  font-size:17px;color:var(--cream);line-height:1.35;
+  transition:all .25s;
+}
+.rsvp-toggle-btn:disabled{opacity:.45;cursor:not-allowed}
+.rsvp-toggle-btn.sel-yes{background:rgba(97,55,0,.10);border-color:var(--peach);color:var(--peach)}
+.rsvp-toggle-btn.sel-no{background:rgba(153,122,0,.09);border-color:#997A00;color:#6B5400}
+
+/* ── NOTAS IMPORTANTES ───────────────────────────────── */
+.notes-list{
+  list-style:none;margin:14px 0 0;padding:0;text-align:left;
+  font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;
+  line-height:1.75;color:var(--cream);
+}
+.notes-list li{position:relative;padding-left:18px;margin-bottom:14px}
+.notes-list li:last-child{margin-bottom:0}
+.notes-list li::before{content:'✦';position:absolute;left:0;top:2px;font-size:9px;color:var(--peach)}
+
+/* ── PÉTALOS QUE CAEN ────────────────────────────────── */
+#petals{position:fixed;inset:0;z-index:60;pointer-events:none;overflow:hidden}
+.petal{
+  position:absolute;top:-40px;
+  border-radius:60% 10% 60% 10%;
+  opacity:0;will-change:transform,opacity;
+  box-shadow:0 1px 3px rgba(51,61,40,.18);
+}
+@media(prefers-reduced-motion:reduce){#petals{display:none}}
+
+/* ── VINILO CON BRAZO ────────────────────────────────── */
+.music-btn{width:78px;height:70px}
+.vinyl-wrap{position:relative;width:78px;height:70px;display:block}
+.vinyl{
+  position:absolute;left:0;top:5px;width:60px;height:60px;
+}
+.vinyl-label{
+  width:26px;height:26px;
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:7px;letter-spacing:.02em;color:#3D2200;
+  flex-direction:column;line-height:1.05;text-align:center;
+}
+.vinyl-label span.vl-a{font-size:8.5px}
+.vinyl-label span.vl-b{font-size:5.5px;letter-spacing:.04em}
+.vinyl-arm{
+  position:absolute;right:2px;top:1px;
+  width:34px;height:44px;
+  transform-origin:88% 12%;
+  transform:rotate(-26deg);
+  transition:transform .55s cubic-bezier(.34,1.3,.64,1);
+  pointer-events:none;
+}
+.music-btn.on .vinyl-arm{transform:rotate(2deg)}
   </style>
 </head>
 <body>
@@ -1865,10 +2000,21 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
 
 <!-- Botón flotante de música · disco de vinilo -->
 <button id="musicBtn" class="music-btn" aria-label="Música de fondo">
-  <span class="vinyl" aria-hidden="true">
-    <span class="vinyl-label"><span class="vinyl-hole"></span></span>
+  <span class="vinyl-wrap" aria-hidden="true">
+    <span class="vinyl">
+      <span class="vinyl-label"><span class="vl-a">C&amp;O</span><span class="vl-b">2026</span></span>
+    </span>
+    <svg class="vinyl-arm" viewBox="0 0 34 44" fill="none">
+      <circle cx="30" cy="5" r="4.4" fill="#C9A227" stroke="#8A6D12" stroke-width="1"/>
+      <circle cx="30" cy="5" r="1.5" fill="#6B5400"/>
+      <path d="M30 6.5 L14 33" stroke="#C9A227" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M30 6.5 L14 33" stroke="#F0DFA4" stroke-width=".9" stroke-linecap="round" opacity=".7"/>
+      <path d="M15.6 30.5 L9.5 38.5 L13.6 41.2 L19 33.4 Z" fill="#C9A227" stroke="#8A6D12" stroke-width=".9" stroke-linejoin="round"/>
+    </svg>
   </span>
 </button>
+
+<div id="petals" aria-hidden="true"></div>
 
 <!-- ═══════════════ SOBRE DE APERTURA ═══════════════ -->
 <div id="envelope-screen">
@@ -1948,6 +2094,26 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
   <div class="h-scroll" id="hScroll">
     <div class="h-scroll-line"></div>
     <span>Desliza</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════ 1b. NUESTRA HISTORIA ═════════════ -->
+<section id="story">
+  <div class="story-card">
+    <span class="story-orn" aria-hidden="true">&#10086;</span>
+    <p class="story-txt">
+      El tiempo en nosotros no existe; pareciera que nos conocimos el día de ayer.
+      Hemos caminado juntos por tantos momentos que se volvieron inolvidables.
+      Aprendimos que el amor es una decisión de elegirnos todos los días,
+      con la certeza inquebrantable de que, pase lo que pase, nuestro lugar
+      favorito en el mundo siempre será estar juntos.
+    </p>
+    <div class="gline"></div>
+    <p class="story-txt story-txt-end">
+      Los esperamos con el corazón abierto, listos para compartir
+      el día más especial de nuestras vidas.
+    </p>
   </div>
 </section>
 
@@ -2115,9 +2281,14 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
 <!-- ═══════════════ 4. CALENDAR ══════════════════════ -->
 <section id="calendar">
   <span class="lbl">No lo olvides</span>
-  <h2 class="ttl" style="font-size:26px">Guarda la Fecha</h2>
+  <h2 class="ttl">Reserva la Fecha</h2>
   <div class="gline"></div>
-  <p class="cal-sub">Agrega nuestra boda a tu calendario<br>para no perderte ni un momento.</p>
+  <p class="cal-sub">Reserva la fecha en tu calendario</p>
+
+  <div class="cal-img-wrap">
+    <img src="calendario.jpg" alt="Calendario de noviembre de 2026 con el 14 marcado con un corazón" loading="lazy" width="900">
+  </div>
+
   <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Ciro+%26+Osmara&dates=20261114T180000Z/20261115T040000Z&details=Ceremonia+religiosa+12:00+PM+en+la+Parroquia+de+San+Francisco+de+As%C3%ADs.+Recepci%C3%B3n+2:30+PM+en+Jard%C3%ADn+El+Tlapeue.&location=Valle+de+Bravo%2C+Estado+de+M%C3%A9xico"
      target="_blank" rel="noopener" id="calBtn"
      class="btn btn-olive" style="max-width:310px;margin:0 auto;display:flex">
@@ -2167,11 +2338,11 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
     </div>
     <div class="tl-row" data-side="right">
       <div class="tl-orn"></div><div class="tl-pulse"></div><div class="tl-dot"></div>
-      <div class="tl-row-inner"><p class="tl-t">4:00 PM</p><p class="tl-ev">Comida</p><p class="tl-de">Brindis y banquete</p></div>
+      <div class="tl-row-inner"><p class="tl-t">4:00 PM</p><p class="tl-ev">Comida</p></div>
     </div>
     <div class="tl-row" data-side="left">
       <div class="tl-orn"></div><div class="tl-pulse"></div><div class="tl-dot"></div>
-      <div class="tl-row-inner"><p class="tl-t">7:00 PM</p><p class="tl-ev">Vals de los Novios</p><p class="tl-de">El gran momento</p></div>
+      <div class="tl-row-inner"><p class="tl-t">7:00 PM</p><p class="tl-ev">Vals de los Novios</p></div>
     </div>
   
   </div>
@@ -2182,8 +2353,8 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
 <section id="gifts">
   <div class="env-rain" id="envRain" aria-hidden="true"></div>
   <div class="env-stage">
-    <span class="lbl">Celebra con nosotros</span>
-    <h2 class="ttl">Lluvia de Sobres</h2>
+    <span class="lbl">Con cariño</span>
+    <h2 class="ttl">Mesa de Regalos</h2>
     <div class="gline"></div>
 
     <button class="env-interactive" id="envGift" type="button" aria-label="Sobre — toca para abrir" aria-expanded="false">
@@ -2223,7 +2394,9 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
           <rect x="20" y="28" width="12" height="2.5" rx="1.25" fill="currentColor" stroke="none" opacity=".4"/>
         </svg>
         <p class="env-title">Tu presencia es nuestro regalo</p>
-        <p class="env-desc">El día del evento habrá una urna donde podrás depositar tu sobre con mucho cariño.</p>
+        <p class="env-desc">Si deseas hacernos un obsequio, una aportación a nuestra nueva vida juntos será muy bienvenida. El día del evento habrá una urna donde podrás depositar tu sobre.</p>
+        <span class="env-div" aria-hidden="true">&#10022;</span>
+        <p class="env-desc">También contaremos con una <strong>mesa de regalos física</strong> el día de la celebración.</p>
       </div>
     </button>
     <p class="env-tap-hint" id="envGiftHint">Toca para abrir</p>
@@ -2233,44 +2406,24 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
 
 <!-- ═══════════════ 8. ÁLBUM COMPARTIDO ══════════════ -->
 <section id="album">
-  <span class="lbl">Captura cada momento</span>
-  <h2 class="ttl">Álbum Compartido</h2>
+  <span class="lbl">Comparte tus momentos</span>
+  <h2 class="ttl">Álbum de Fotos</h2>
   <div class="gline"></div>
-  <p class="alb-sub">Escanea el código QR y sube las fotos<br>que tomes durante el evento.</p>
+  <p class="alb-sub">Escanea el código y sube tus fotos favoritas<br>de esta celebración tan especial.</p>
 
-  <div class="alb-qr-wrap">
+  <div class="alb-qr-wrap" id="albQrWrap">
     <div class="alb-qr-frame">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&color=613700&bgcolor=FFF8E8&data=https%3A%2F%2Fphotos.app.goo.gl%2Fciro-osmara-boda-2026"
-           alt="QR álbum compartido Ciro y Osmara" class="alb-qr" loading="lazy">
+      <img id="albQr" src="" alt="Código QR del álbum compartido de Ciro y Osmara" class="alb-qr" loading="lazy">
     </div>
     <p class="alb-scan">Escanea con la cámara</p>
   </div>
 
-  <a href="https://photos.app.goo.gl/ciro-osmara-boda-2026" target="_blank" rel="noopener" class="btn alb-btn">
+  <a href="#" id="albBtn" target="_blank" rel="noopener" class="btn alb-btn">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
     Abrir álbum
   </a>
 
-  <p class="alb-hint">Compartirás tus fotos con los demás invitados.<br>Podrás ver el álbum completo después del evento.</p>
-</section>
-
-
-<!-- ═══════════════ 9. HOSPEDAJE ════════════════════ -->
-<section id="hospedaje">
-  <span class="lbl">Para tu estadía</span>
-  <h2 class="ttl">Hospedaje</h2>
-  <div class="gline"></div>
-  <p class="gf-sub">Te compartimos algunas opciones<br>de hospedaje cercanas al jardín.</p>
-
-  <div class="gf-card" style="cursor:default">
-    <div class="gf-card-top">
-      <div class="gf-logo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
-      <p class="gf-ttl">Por confirmar</p>
-    </div>
-    <p class="gf-nt gf-nt-long">Muy pronto compartiremos aquí las opciones de hospedaje recomendadas en Valle de Bravo.</p>
-  </div>
+  <p class="alb-hint" id="albHint">Compartirás tus fotos con los demás invitados.<br>Podrás ver el álbum completo después del evento.</p>
 </section>
 
 
@@ -2299,27 +2452,24 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke="#B4271A" stroke-width="1.7"/><line x1="5.4" y1="5.4" x2="18.6" y2="18.6" stroke="#B4271A" stroke-width="1.7"/></svg>
       <span class="dc-avoid-lbl">Tonos a <strong>evitar</strong></span>
     </div>
-    <p class="dc-avoid-clarify">Favor de evitar estos tonos en tu vestuario.</p>
-    <div class="dc-avoid-row">
-      <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#FFFFFF;border:1px solid #E2D8C6"></div><span class="dc-avoid-name">Blanco</span></div>
-      <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#FFFFE6;border:1px solid #E2D8C6"></div><span class="dc-avoid-name">Marfil</span></div>
-      <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#F5EECE;border:1px solid #E2D8C6"></div><span class="dc-avoid-name">Crema</span></div>
-      <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#B8E1FF"></div><span class="dc-avoid-name">Azul cielo</span></div>
-    </div>
-    <div class="dc-avoid-row">
-      <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#FF0000"></div><span class="dc-avoid-name">Rojo</span></div>
-      <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#8C0000"></div><span class="dc-avoid-name">Vino</span></div>
-      <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#A9A3FF"></div><span class="dc-avoid-name">Lila</span></div>
-    </div>
+
+    <p class="dc-avoid-who">Damas</p>
+    <div class="dc-avoid-row"><div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#FFFFFF;border:1px solid #E2D8C6"></div><span class="dc-avoid-name">Blanco</span></div><div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#FFFFE6;border:1px solid #E2D8C6"></div><span class="dc-avoid-name">Marfil</span></div><div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#F5EECE;border:1px solid #E2D8C6"></div><span class="dc-avoid-name">Crema</span></div></div>
+    <div class="dc-avoid-row"><div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#A9A3FF"></div><span class="dc-avoid-name">Lila</span></div><div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#FF0000"></div><span class="dc-avoid-name">Rojo</span></div><div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#8C0000"></div><span class="dc-avoid-name">Vino</span></div></div>
     <p class="dc-avoid-msg">El blanco y sus tonos están reservados para la novia.</p>
+
+    <div class="dc-avoid-sep" aria-hidden="true"></div>
+
+    <p class="dc-avoid-who">Caballeros</p>
+    <div class="dc-avoid-row"><div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#FFFFE6;border:1px solid #E2D8C6"></div><span class="dc-avoid-name">Marfil</span></div><div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#B8E1FF"></div><span class="dc-avoid-name">Azul cielo</span></div></div>
   </div>
 </section>
 
 
 <!-- ═══════════════ 10. FAMILIA ══════════════════════ -->
 <section id="family">
-  <span class="lbl">Con amor de</span>
-  <h2 class="ttl">Nuestras Familias</h2>
+  <span class="lbl">Con la bendición de Dios</span>
+  <h2 class="ttl">y de Nuestras Familias</h2>
   <div class="gline"></div>
 
   <div class="fam-grid">
@@ -2342,19 +2492,18 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
 
 <!-- ═══════════════ 11. GALERÍA · FOTOS QUE CAEN ══════════════ -->
 <section id="gallery">
-  <span class="lbl">Nuestra historia</span>
-  <h2 class="ttl">Galería</h2>
+  <span class="lbl">Algunos recuerdos</span>
+  <h2 class="ttl">Momentos <span class="ttl-script">juntos</span></h2>
   <div class="gline"></div>
-  <p class="gal-sub"><em>Momentos que atesoramos</em></p>
 
   <div class="wheel-scene" id="wheel-scene">
     <div class="wheel-ring" id="wheel-ring">
-          <div class="wheel-card"><img data-src="g1.jpg" alt="Ciro y Osmara · la propuesta"></div>
-          <div class="wheel-card"><img data-src="g2.jpg" alt="Ciro y Osmara en la moto"></div>
-          <div class="wheel-card"><img data-src="g3.jpg" alt="Ciro y Osmara trabajando juntos"></div>
-          <div class="wheel-card"><img data-src="g4.jpg" alt="Ciro y Osmara de paseo"></div>
-          <div class="wheel-card"><img data-src="g5.jpg" alt="Ciro y Osmara · save the date"></div>
-          <div class="wheel-card"><img data-src="hero.jpg" alt="Ciro y Osmara tomados de la mano"></div>
+          <div class="wheel-card"><img data-src="w1.jpg" alt="Ciro y Osmara · la propuesta"></div>
+          <div class="wheel-card"><img data-src="w2.jpg" alt="Ciro y Osmara en la moto"></div>
+          <div class="wheel-card"><img data-src="w3.jpg" alt="Ciro y Osmara trabajando juntos"></div>
+          <div class="wheel-card"><img data-src="w4.jpg" alt="Ciro y Osmara de paseo"></div>
+          <div class="wheel-card"><img data-src="w5.jpg" alt="Ciro y Osmara · save the date"></div>
+          <div class="wheel-card"><img data-src="w6.jpg" alt="Ciro y Osmara tomados de la mano"></div>
     </div>
   </div>
 
@@ -2368,13 +2517,14 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
   <h2 class="ttl">¿Nos acompañas?</h2>
   <div class="gline"></div>
 
-  <div class="rsvp-adults">
-    <div class="rsvp-adults-line"></div>
-    <span class="rsvp-adults-lbl">Solo adultos</span>
-    <p class="rsvp-adults-msg">
-      Con todo nuestro cariño hemos pensado esta celebración como una noche
-      para los grandes. Sabemos que amas a tus pequeños tanto como nosotros,
-      y por eso te regalamos esta noche libre para disfrutar con nosotros.
+  <div class="rsvp-notice">
+    <span class="rsvp-notice-lbl">Aviso especial</span>
+    <p class="rsvp-notice-ttl">No <span class="rsvp-notice-script">Niños</span></p>
+    <p class="rsvp-notice-msg">
+      Con todo nuestro cariño hemos pensado esta celebración para adultos.
+      Sabemos que amas a tus pequeños tanto como nosotros, y por eso te
+      regalamos este evento libre para disfrutar con nosotros.
+      Esperamos tu comprensión.
     </p>
   </div>
 
@@ -2412,8 +2562,13 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
         <div class="rsvp-pases-num" id="rsvpPasesNum">1</div>
       </div>
 
-      <p class="rsvp-names-lbl">Escribe el nombre completo de cada persona</p>
-      <div class="rsvp-fields" id="rsvpGuestsWrap"></div>
+      <div class="rsvp-toggle">
+        <button class="rsvp-toggle-btn" id="rsvpBtnYes" type="button">Sí asistiré</button>
+        <button class="rsvp-toggle-btn" id="rsvpBtnNo"  type="button">No podré asistir</button>
+      </div>
+
+      <p class="rsvp-names-lbl" id="rsvpNamesLbl" style="display:none">Escribe el nombre completo de cada persona</p>
+      <div class="rsvp-fields" id="rsvpGuestsWrap" style="display:none"></div>
 
       <button class="rsvp-btn" id="rsvpBtn" type="button" onclick="sendRSVP()">
         <span id="rsvpBtnTxt">Confirmar asistencia</span>
@@ -2433,14 +2588,12 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
       <div class="gf-logo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="7" y1="15" x2="12" y2="15"/></svg>
       </div>
-      <p class="gf-ttl">Tus pases</p>
+      <p class="gf-ttl">Notas importantes</p>
     </div>
-    <p class="gf-nt gf-nt-long">
-      El día del evento presenta tu invitación en la recepción.
-      Te pedimos de la manera más atenta respetar el número de pases
-      asignados en tu invitación: cada lugar fue reservado con mucho
-      cariño y nuestro espacio es limitado. ¡Gracias por comprenderlo!
-    </p>
+    <ul class="notes-list">
+      <li>El día del evento presenta tu pase en la recepción. Te pedimos de la manera más atenta respetar el número de pases asignados en tu invitación: cada lugar fue reservado con mucho cariño.</li>
+      <li>En caso de no confirmar asistencia, comprenderemos que no podrás acompañarnos ese día.</li>
+    </ul>
   </div>
 </section>
 
@@ -2541,6 +2694,8 @@ function bootInvitation(){
         ambientWind();
         initWheel();
         initEnvelopeRain();
+        initAlbum();
+        initPetals();
       }
     }
   });
@@ -2961,12 +3116,11 @@ const _q     = new URLSearchParams(location.search);
 const _para  = (_q.get('para') || '').trim();
 let   _pases = Math.min(20, Math.max(1, parseInt(_q.get('pases')) || 1));
 let   _saved = [];
+let   _choice = null;   /* 'yes' | 'no' */
 
 function renderRsvpGuests() {
   const numEl = document.getElementById('rsvpPasesNum');
-  const lblEl = document.getElementById('rsvpPasesLbl');
   if (numEl) numEl.textContent = _pases;
-  if (lblEl) lblEl.textContent = _pases === 1 ? 'persona' : 'personas';
 
   const wrap = document.getElementById('rsvpGuestsWrap');
   if (!wrap) return;
@@ -2980,9 +3134,23 @@ function renderRsvpGuests() {
     inp.autocomplete = 'name';
     inp.maxLength = 60;
     inp.value = _saved[i] || '';
-    inp.style.marginBottom = '10px';
+    ((k) => inp.addEventListener('input', function(){ _saved[k] = this.value; }))(i);
     wrap.appendChild(inp);
   }
+}
+
+function selectRsvp(choice){
+  _choice = choice;
+  const yes = document.getElementById('rsvpBtnYes');
+  const no  = document.getElementById('rsvpBtnNo');
+  const lbl = document.getElementById('rsvpNamesLbl');
+  const wrap= document.getElementById('rsvpGuestsWrap');
+  yes.className = 'rsvp-toggle-btn' + (choice === 'yes' ? ' sel-yes' : '');
+  no.className  = 'rsvp-toggle-btn' + (choice === 'no'  ? ' sel-no'  : '');
+  const show = choice === 'yes';
+  lbl.style.display  = show ? 'block' : 'none';
+  wrap.style.display = show ? 'flex'  : 'none';
+  if (show) renderRsvpGuests();
 }
 
 (function initRsvp(){
@@ -2990,59 +3158,79 @@ function renderRsvpGuests() {
   const btn   = document.getElementById('rsvpBtn');
   const txt   = document.getElementById('rsvpBtnTxt');
   const feed  = document.getElementById('rsvpFeed');
+  const yes   = document.getElementById('rsvpBtnYes');
+  const no    = document.getElementById('rsvpBtnNo');
+  if (!btn) return;
+
   if (_para && hello) {
     hello.textContent = '¡Hola, ' + _para + '!';
     hello.style.display = 'block';
   }
-  renderRsvpGuests();
+  const numEl = document.getElementById('rsvpPasesNum');
+  if (numEl) numEl.textContent = _pases;
 
-  if (new Date() >= RSVP_DEADLINE && btn) {
-    btn.disabled = true;
+  yes.addEventListener('click', () => selectRsvp('yes'));
+  no.addEventListener('click',  () => selectRsvp('no'));
+
+  if (new Date() >= RSVP_DEADLINE) {
+    yes.disabled = true; no.disabled = true; btn.disabled = true;
     txt.textContent = 'Fecha límite alcanzada';
     feed.style.display = 'block';
     feed.textContent = 'La fecha para confirmar asistencia ha pasado.';
+    return;
   }
 
   if (!_para) return;
-  if (btn) btn.disabled = true;
+  btn.disabled = true;
   fetch(PANEL_API + '?nombre=' + encodeURIComponent(_para) + '&url_boda=' + encodeURIComponent(RSVP_URL))
     .then(r => r.json())
     .then(resp => {
       const d = resp && resp.invitado;
-      if (d && typeof d.pases === 'number' && d.pases > 0 && d.pases <= 20) {
-        _pases = d.pases;
-      }
-      if (d && d.nombres_confirmados && d.nombres_confirmados.length) {
-        _saved = d.nombres_confirmados.slice();
-      }
-      renderRsvpGuests();
-      if (d && d.estado === 'confirmado' && txt) {
-        txt.textContent = 'Actualizar confirmación';
+      if (d && typeof d.pases === 'number' && d.pases > 0 && d.pases <= 20) _pases = d.pases;
+      if (d && d.nombres_confirmados && d.nombres_confirmados.length) _saved = d.nombres_confirmados.slice();
+      if (numEl) numEl.textContent = _pases;
+      if (d && (d.estado === 'confirmado' || d.estado === 'declino')) {
+        selectRsvp(d.estado === 'confirmado' ? 'yes' : 'no');
+        txt.textContent = 'Actualizar respuesta';
         feed.style.display = 'block';
-        feed.textContent = '¡Ya tienes confirmada tu asistencia! Puedes actualizar los nombres.';
+        feed.style.color = 'var(--peach)';
+        feed.textContent = d.estado === 'confirmado'
+          ? '¡Ya tienes confirmada tu asistencia! Puedes actualizar tu respuesta.'
+          : 'Ya registramos que no podrás acompañarnos. Puedes cambiar tu respuesta.';
       }
     })
     .catch(() => {})
-    .then(() => { if (btn && new Date() < RSVP_DEADLINE) btn.disabled = false; });
+    .then(() => { btn.disabled = false; });
 })();
 
 function sendRSVP() {
   const btn  = document.getElementById('rsvpBtn');
   const txt  = document.getElementById('rsvpBtnTxt');
   const feed = document.getElementById('rsvpFeed');
-  const names = [];
-  for (let i = 0; i < _pases; i++) {
-    const n = (document.getElementById('rsvpName' + i)?.value || '').trim();
-    if (n) names.push(n);
-  }
-  if (!names.length) {
+
+  if (!_choice) {
     feed.style.display = 'block';
     feed.style.color = '#B4271A';
-    feed.textContent = 'Por favor escribe al menos un nombre completo.';
-    toast('Escribe los nombres completos');
+    feed.textContent = 'Por favor indícanos si podrás acompañarnos.';
     return;
   }
-  _saved = names.slice();
+
+  const names = [];
+  if (_choice === 'yes') {
+    for (let i = 0; i < _pases; i++) {
+      const n = (document.getElementById('rsvpName' + i)?.value || '').trim();
+      if (n) names.push(n);
+    }
+    if (!names.length) {
+      feed.style.display = 'block';
+      feed.style.color = '#B4271A';
+      feed.textContent = 'Por favor escribe al menos un nombre completo.';
+      toast('Escribe los nombres completos');
+      return;
+    }
+    _saved = names.slice();
+  }
+
   btn.disabled = true;
   txt.textContent = 'Enviando…';
   feed.style.display = 'none';
@@ -3050,21 +3238,23 @@ function sendRSVP() {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      nombre: _para || names[0],
+      nombre: _para || names[0] || 'Invitado',
       url_boda: RSVP_URL,
-      estado: 'confirmado',
-      pases_confirmados: names.length,
+      estado: _choice === 'yes' ? 'confirmado' : 'declino',
+      pases_confirmados: _choice === 'yes' ? names.length : 0,
       nombres_confirmados: names
     })
   })
   .then(r => { if (!r.ok) throw new Error('http'); return r.json(); })
   .then(() => {
     btn.disabled = false;
-    txt.textContent = 'Actualizar confirmación';
+    txt.textContent = 'Actualizar respuesta';
     feed.style.display = 'block';
     feed.style.color = 'var(--peach)';
-    feed.textContent = '¡Tu asistencia ha sido confirmada! Nos vemos el 14 de noviembre. ✦';
-    toast('¡Confirmación enviada!');
+    feed.textContent = _choice === 'yes'
+      ? '¡Tu asistencia ha sido confirmada! Nos vemos el 14 de noviembre. ✦'
+      : 'Hemos registrado que no podrás acompañarnos. ¡Gracias por avisarnos!';
+    toast(_choice === 'yes' ? '¡Confirmación enviada!' : 'Respuesta registrada');
   })
   .catch(() => {
     btn.disabled = false;
@@ -3079,6 +3269,65 @@ function sendRSVP() {
 function copyClabe() {
 }
 
+
+/* ── ÁLBUM COMPARTIDO ────────────────────────────────── */
+/* Pon aquí el enlace real del álbum (Google Photos) y la sección se activa
+   sola: QR + botón. Vacío = se muestra el aviso de "muy pronto". */
+const ALBUM_URL = '';
+
+function initAlbum(){
+  const qr   = document.getElementById('albQr');
+  const btn  = document.getElementById('albBtn');
+  const hint = document.getElementById('albHint');
+  const wrap = document.getElementById('albQrWrap');
+  if(!qr || !btn) return;
+  if(ALBUM_URL){
+    qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=320x320&color=613700&bgcolor=FFF8E8&data='
+             + encodeURIComponent(ALBUM_URL);
+    btn.href = ALBUM_URL;
+  } else {
+    /* sin enlace no mandamos al invitado a una URL rota */
+    if(wrap) wrap.style.display = 'none';
+    btn.style.display = 'none';
+    if(hint) hint.innerHTML = 'Muy pronto activaremos aquí el código para que subas tus fotos del evento.';
+  }
+}
+
+/* ── PÉTALOS QUE CAEN ────────────────────────────────── */
+/* El spawn va con setInterval a propósito: gsap.delayedCall depende del
+   ticker (rAF) y en pestañas en segundo plano se congela, dejando la
+   invitación sin pétalos al volver. */
+function initPetals(){
+  const box = document.getElementById('petals');
+  if(!box) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const COLORS = ['rgba(212,197,178,.95)','rgba(153,122,0,.55)','rgba(184,158,96,.75)','rgba(97,55,0,.32)'];
+  const MAX = window.innerWidth < 520 ? 12 : 18;
+
+  function spawn(){
+    if(box.childElementCount >= MAX) return;
+    const el = document.createElement('span');
+    el.className = 'petal';
+    const w = 9 + Math.random()*10;
+    el.style.width  = w + 'px';
+    el.style.height = (w*0.7) + 'px';
+    el.style.background = COLORS[(Math.random()*COLORS.length)|0];
+    el.style.left = (Math.random()*100) + '%';
+    box.appendChild(el);
+    const H = window.innerHeight || 800;
+    const dur = 12 + Math.random()*9;
+    gsap.timeline({onComplete(){ el.remove(); }})
+      .fromTo(el,
+        {y:-40, x:0, rotation:Math.random()*360, opacity:0},
+        {y:H+60, x:(Math.random()-.5)*160, rotation:'+=' + (240+Math.random()*360),
+         duration:dur, ease:'none'}, 0)
+      .to(el, {opacity:.85, duration:dur*.12, ease:'power1.out'}, 0)
+      .to(el, {opacity:0,   duration:dur*.28, ease:'power1.in'}, dur*.72);
+  }
+
+  for(let i=0;i<5;i++) setTimeout(spawn, i*700);
+  setInterval(spawn, 1400);
+}
 
 /* ── LLUVIA DE SOBRES ────────────────────────────────── */
 function initEnvelopeRain(){
