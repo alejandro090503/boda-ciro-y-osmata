@@ -32,11 +32,12 @@
 
 /* ── RESET ────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;overscroll-behavior-x:none}
 body{
   background:var(--ink);color:var(--cream);
   font-family:'Lato',sans-serif;font-weight:500;font-size:16px;line-height:1.6;
-  overflow-x:hidden;max-width:430px;margin:0 auto;
+  overflow-x:hidden;overscroll-behavior-x:none;position:relative;
+  max-width:430px;margin:0 auto;
   -webkit-tap-highlight-color:transparent;
 }
 section{padding:64px 22px}
@@ -276,7 +277,7 @@ body.env-locked{overflow:hidden;height:100vh}
   white-space:nowrap;
 }
 
-.h-amp-clip{overflow:hidden;line-height:1.5;padding:2px 0 10px;margin:2px 0 4px}
+.h-amp-clip{overflow:hidden;line-height:1.5;padding:2px 22px 10px;margin:2px 0 4px}
 .h-amp{
   font-family:'Great Vibes',cursive;
   font-size:62px;line-height:1.5;
@@ -1687,7 +1688,7 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 .env-rain{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .env-rain-item{position:absolute;top:-46px;will-change:transform;opacity:0}
 .env-stage{position:relative;z-index:1}
-.env-interactive{display:flex;flex-direction:column;align-items:center;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none;border:none;background:none;padding:0;margin:26px auto 0;opacity:0}
+.env-interactive{display:flex;flex-direction:column;align-items:center;width:100%;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none;border:none;background:none;padding:0;margin:26px auto 0;opacity:0}
 .env-body{perspective:700px;position:relative;width:min(258px,74vw);aspect-ratio:260/200;filter:drop-shadow(0 10px 26px rgba(51,61,40,.2))}
 .env-body svg.env-svg{width:100%;height:100%;display:block}
 .env-flap-wrap{position:absolute;top:23%;left:6.9%;width:86.2%;height:43%;transform-origin:top center;transform-style:preserve-3d;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .65s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:2}
@@ -1699,7 +1700,7 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 .env-mailbox-icon{width:42px;height:42px;color:var(--peach);margin-top:6px}
 .env-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:23px;line-height:1.4;color:var(--peach)}
 .env-desc{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;font-style:italic;color:var(--cream);opacity:.9;line-height:1.75;max-width:300px}
-.env-tap-hint{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--peach);margin-top:18px;opacity:0;transition:opacity .5s ease;position:relative;z-index:1}
+.env-tap-hint{display:block;width:100%;text-align:center;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--peach);margin:18px auto 0;opacity:0;transition:opacity .5s ease;position:relative;z-index:1}
 .env-tap-hint.show{opacity:.9;animation:envHintPulse 2.4s ease-in-out infinite}
 .env-interactive.open~.env-tap-hint{opacity:0!important;animation:none;pointer-events:none}
 @keyframes envHintPulse{0%,100%{opacity:.55}50%{opacity:1}}
@@ -2281,9 +2282,8 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
 <!-- ═══════════════ 4. CALENDAR ══════════════════════ -->
 <section id="calendar">
   <span class="lbl">No lo olvides</span>
-  <h2 class="ttl">Reserva la Fecha</h2>
+  <h2 class="ttl">Reserva la Fecha en tu Calendario</h2>
   <div class="gline"></div>
-  <p class="cal-sub">Reserva la fecha en tu calendario</p>
 
   <div class="cal-img-wrap">
     <img src="calendario.jpg" alt="Calendario de noviembre de 2026 con el 14 marcado con un corazón" loading="lazy" width="900">
@@ -2413,14 +2413,14 @@ body.wheel-dragging{overflow-x:hidden;overscroll-behavior-x:none}
 
   <div class="alb-qr-wrap" id="albQrWrap">
     <div class="alb-qr-frame">
-      <img id="albQr" src="" alt="Código QR del álbum compartido de Ciro y Osmara" class="alb-qr" loading="lazy">
+      <img id="albQr" src="" alt="Código QR del álbum de fotos de Ciro y Osmara" class="alb-qr" loading="lazy">
     </div>
     <p class="alb-scan">Escanea con la cámara</p>
   </div>
 
-  <a href="#" id="albBtn" target="_blank" rel="noopener" class="btn alb-btn">
+  <a href="#" id="albBtn" target="_blank" rel="noopener" class="btn btn-olive alb-btn" style="max-width:310px;margin:0 auto;display:flex">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-    Abrir álbum
+    Ir a álbum de fotos
   </a>
 
   <p class="alb-hint" id="albHint">Compartirás tus fotos con los demás invitados.<br>Podrás ver el álbum completo después del evento.</p>
@@ -2966,7 +2966,7 @@ function scrollAnims() {
   });
 
   // Calendar button
-  gsap.from(['#calendar .cal-sub', '#calBtn'], {
+  gsap.from(['#calendar .cal-img-wrap', '#calBtn'], {
     opacity: 0, y: 18, scale: .96, duration: .65, stagger: .14,
     ease: 'back.out(1.3)',
     scrollTrigger: { trigger: '#calendar', start: 'top 84%', once: true }
@@ -3281,15 +3281,20 @@ function initAlbum(){
   const hint = document.getElementById('albHint');
   const wrap = document.getElementById('albQrWrap');
   if(!qr || !btn) return;
-  if(ALBUM_URL){
-    qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=320x320&color=613700&bgcolor=FFF8E8&data='
-             + encodeURIComponent(ALBUM_URL);
-    btn.href = ALBUM_URL;
-  } else {
-    /* sin enlace no mandamos al invitado a una URL rota */
-    if(wrap) wrap.style.display = 'none';
-    btn.style.display = 'none';
-    if(hint) hint.innerHTML = 'Muy pronto activaremos aquí el código para que subas tus fotos del evento.';
+  /* mientras no haya enlace, el QR abre la propia invitación (nunca una URL
+     rota) y el botón avisa en vez de navegar */
+  const target = ALBUM_URL || RSVP_URL;
+  qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=320x320&color=613700&bgcolor=FFF8E8&data='
+           + encodeURIComponent(target);
+  btn.href = target;
+  if(!ALBUM_URL){
+    btn.removeAttribute('target');
+    btn.setAttribute('aria-disabled','true');
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      toast('Muy pronto activaremos el álbum');
+    });
+    if(hint) hint.innerHTML = 'Compartirás tus fotos con los demás invitados.<br>Podrás ver el álbum completo después del evento.';
   }
 }
 
